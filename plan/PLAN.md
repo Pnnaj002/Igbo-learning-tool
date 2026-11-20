@@ -5,7 +5,8 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 
 ## How the plan changed after your update
 - **Speaking only.** No writing tasks; no reading required. The only "spelling" you need is the vocabulary notes you jot to remember a word (any style is fine). Tone stays, because it is part of speaking.
-- **Your parents' dialects:** Enugu (Northern Igbo) and Imo (Owerri/Central area). That is two dialect sources at home. Keep both for speaking; don't "standardize" them away. Resources about Standard Igbo (Izugbe) are used for *understanding* and grammar names only, as BBC-style speech is where it shows up.
+- **Target dialect: Enugu Igbo** (Northern Igbo). Your Enugu parent is the main model: shadow their voice notes, copy their phrasing. Your other parent's Imo (Owerri/Central) Igbo is kept for *understanding* only, so you don't blend the two while speaking. Standard Igbo (BBC-style) is used only for grammar names and extra listening, never as your speaking model.
+- **Tutor must be from Enugu State** (ideally your parent's town/area; "Enugu" covers several dialect clusters). Ask before booking: where are you from, and will you let me speak the way my parents do?
 
 ## Weekly time (see SCHEDULE for exact slots)
 ~3h20-3h30 per week in term (Tier B-ish), ~60-90 min/day in break weeks (Tier C), and a 5-minute floor on any day.

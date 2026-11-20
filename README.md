@@ -15,7 +15,7 @@ A personal plan for a heritage speaker: strong listening and conversational comp
 | [tracking/PROGRESS.md](tracking/PROGRESS.md) | Weekly log + checkpoint scoreboard to fill in |
 | [tracking/MY_DIALECT_NOTES.md](tracking/MY_DIALECT_NOTES.md) | Where you record your family's words/phrases vs. Standard Igbo (Izugbe) |
 
-**Focus: speaking only.** Reading and writing are out of scope for now.
+**Focus: speaking Enugu Igbo.** Reading and writing are out of scope for now. BART commute = listening time.
 
 ## Core strategy (one paragraph)
 You already own the hardest part: a listening-trained ear and intuitive grammar. What's missing is **retrieval under

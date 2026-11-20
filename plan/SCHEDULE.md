@@ -43,8 +43,13 @@ Total about 3h30/week.
 ## The daily 5-minute floor
 Say 5 sentences out loud about your day, in Igbo, in the car, shower or walk. That keeps the streak alive on exam days.
 
-## Listening floor (works with a commute or chores)
-2+ hours/week of Igbo audio: voice notes from parents, Igbo radio, BBC Igbo audio, sermons, Nollywood. Pair with chores or commuting so it costs no study time.
+## BART commute = your listening block (free time, no extra study minutes)
+Class days are Wed/Thu/Fri (and some Saturdays), so about 2-3 BART rides a week plus return trips. Use them for **input**, not speaking out loud:
+- Parent/relative voice notes (your Enugu parent first), re-played and repeated silently (mouth the words).
+- Short Enugu-flavored clips (see RESOURCES.md section 7); Igbo Daily Drops for vocab.
+- Flashcard reviews: Vault deck (10 cards) + Gap deck.
+- Don't do speaking prompts on BART; keep those for home, walks or the car.
+Target 2+ hours of Igbo audio per week; the commute covers most of it.
 
 ## Week-by-week calendar
 | Wk | Dates | Class load | Mode | Focus | Checkpoint (Sundays) |
