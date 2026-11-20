@@ -38,7 +38,7 @@ Total about 3h20/week.
 Total about 3h30/week.
 
 ## Break weeks (Dec 14 - Jan 3, and likely spring break): go **Tier C**
-60-90 min/day, daily tutor-level speaking, extra family conversations. This is your biggest chance to build momentum.
+60-90 min/day, daily speaking, extra family conversations. This is your biggest chance to build momentum.
 
 ## The daily 5-minute floor
 Say 5 sentences out loud about your day, in Igbo, in the car, shower or walk. That keeps the streak alive on exam days.
@@ -54,7 +54,7 @@ Target 2+ hours of Igbo audio per week; the commute covers most of it.
 ## Week-by-week calendar
 | Wk | Dates | Class load | Mode | Focus | Checkpoint (Sundays) |
 |---|---|---|---|---|---|
-| 1 | Nov 23-29 | Light (Wed class; Thu/Fri off) | B | Baseline recordings, gap audit, book tutor; Thanksgiving: record relatives if you see them | Mini-check |
+| 1 | Nov 23-29 | Light (Wed class; Thu/Fri off) | B | Baseline recordings, gap audit; Thanksgiving: record relatives if you see them | Mini-check |
 | 2 | Nov 30-Dec 6 | Normal | B | Sounds and tone; present/future verbs | Mini-check |
 | 3 | Dec 7-13 | **Finals** (Wed 12/9, Thu 12/10, Fri 12/11) | A | Floor + Sunday call only | Mini-check |
 | 4 | Dec 14-20 | Break | C | Past/perfect/negation drills | **Milestone 1 (Sun Dec 20)** |
@@ -65,12 +65,12 @@ Target 2+ hours of Igbo audio per week; the commute covers most of it.
 | 9 | Jan 18-24 | Thu, Sat full | B/A | Respect forms with elders; greetings | Mini-check |
 | 10 | Jan 25-31 | Thu, Sat full | B/A | Review and consolidation | **Milestone 2 (Sun Jan 31)** |
 | 11 | Feb 1-7 | Thu, Sat full | B/A | Storytelling (past events) | Mini-check |
-| 12 | Feb 8-14 | **Fri 2/12 + Sat 2/13 full-day** | A | Floor, tutor, Sunday call; re-do Wk 1 baseline | Baseline redo (Sun Feb 14) |
+| 12 | Feb 8-14 | **Fri 2/12 + Sat 2/13 full-day** | A | Floor, speak-out, Sunday call; re-do Wk 1 baseline | Baseline redo (Sun Feb 14) |
 | 13 | Feb 15-21 | Zoom Tue, Thu, Fri heavy | A/B | Hypotheticals; ọ bụrụ na | Mini-check |
 | 14 | Feb 22-28 | Zoom Tue, Thu, Fri heavy | A/B | Unplanned topics | **Milestone 3 (Sun Feb 28)** |
 | 15 | Mar 1-7 | Same | A/B | Long-form talking (5+ min) | Mini-check |
 | 16 | Mar 8-14 | Same | A/B | Humor, proverbs, idioms | Mini-check |
-| 17 | Mar 15-21 | Last winter week (Fri 3/19 final) | A | Floor + tutor + Sunday call | Mini-check |
+| 17 | Mar 15-21 | Last winter week (Fri 3/19 final) | A | Floor + speak-out + Sunday call | Mini-check |
 | 18 | Mar 22-28 | Likely break | C | Retell stories from memory | **Milestone 4 (Sun Mar 28)** |
 | 19 | Mar 29-Apr 4 | Spring starts? **send me your schedule** | ? | Switch a routine to Igbo | Mini-check |
 | 20 | Apr 5-11 | Spring | ? | 2 non-family conversations/week | Mini-check |

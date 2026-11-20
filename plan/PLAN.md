@@ -16,7 +16,7 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 2. **Family call, 20 min (Sunday):** the free daily-life conversation; ask a parent to correct you in Igbo, and note how each parent says things.
 3. **Shadowing (Monday):** copy a native clip line by line, record yourself, compare.
 4. **Grammar by speaking (Monday):** learn a pattern, then say 10 sentences aloud with it. No writing.
-5. **Speaking prompt (Sat/Wed):** record yourself on a topic for 5 minutes, listen back, pick 3 errors to bring to the tutor.
+5. **Speaking prompt (Sat/Wed):** record yourself on a topic for 5 minutes, listen back, pick 3 errors to check with an Enugu relative.
 6. **Talk-to-self (daily 15 min or 5-min floor):** narrate what you're doing in Igbo; note words you lacked.
 7. **Sunday check (see CHECKPOINTS.md):** all spoken.
 
@@ -31,7 +31,7 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 ### Phase 2: Pattern speed (Weeks 5-10, Dec 21 - Jan 31)
 - Questions, commands, connectors, vowel harmony in speech, numbers/time, relative clauses, respect forms for elders.
 - Use the break weeks for daily conversation; use busy winter weeks to maintain.
-- **Milestone 2 (Sun Jan 31):** 5-minute unscripted conversation with the tutor, <= 10 flagged errors; explain 3 patterns aloud.
+- **Milestone 2 (Sun Jan 31):** 5-minute unscripted conversation with a relative, <= 10 flagged errors; explain 3 patterns aloud.
 
 ### Phase 3: Output and range (Weeks 11-18, Feb 1 - Mar 28)
 - Weekly topic talks: work, food, health, opinions, past events, hypotheticals.
@@ -48,5 +48,5 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 
 ## If things go wrong
 - Missed days: resume, don't catch up.
-- Failed milestone: repeat the last two weeks of that phase with more tutor time on the weak skill.
+- Failed milestone: repeat the last two weeks of that phase with extra family conversation on the weak skill.
 - New schedule (e.g., Spring 2027): send it and I'll re-cut Weeks 19-24.
