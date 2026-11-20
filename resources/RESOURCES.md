@@ -72,7 +72,8 @@ a single local variety; sources I found disagree on exactly which dialects it dr
 Practical meaning: written Igbo and BBC Igbo use it, but nobody's home dialect is exactly it.
 A useful reading: [NOUN course on Igbo dialects (PDF)](https://nou.edu.ng/coursewarecontent/IGB%20351%20-%20Igbo%20Dialects.pdf).
 
-## 7. Enugu-specific resources (new)
+## 7. Enugu-specific resources (optional; now secondary)
+You chose Standard Igbo as the target, so skip this section unless you want to understand your family's Enugu speech.
 Honest note: I found **no Enugu dictionary or Enugu-specific course**. Your best Enugu resource is your Enugu parent, and the Enugu family around them.
 - **Enugu-based tutors on Preply/Superprof** (self-described; verify dialect before booking): [Eze S. (Enugu State)](https://preply.com/en/tutor/8107388), [Anikwe D. (Enugu)](https://preply.com/en/tutor/8276614), [Chiamaka N. (grew up in Enugu)](https://preply.com/en/tutor/6356619), [Nneka Rita (Superprof, Enugu, ~$5/hr, free first lesson)](https://www.superprof.com.au/skilled-igbo-language-teacher-personalized-meet-your-needs-all-levels-with-various-teaching-methodology-fine-tune-your.html). I matched these from a search snippet and couldn't confirm which profile page is which; check the names on the listings.
 - **Ask any tutor:** "Which part of Enugu are you from? Will you teach me to speak like my parents (Enugu), not just Standard Igbo?" Do a trial lesson with 2-3 and pick the one whose speech matches your parent's.

@@ -5,18 +5,18 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 
 ## How the plan changed after your update
 - **Speaking only.** No writing tasks; no reading required. The only "spelling" you need is the vocabulary notes you jot to remember a word (any style is fine). Tone stays, because it is part of speaking.
-- **Target dialect: Enugu Igbo** (Northern Igbo). Your Enugu parent is the main model: shadow their voice notes, copy their phrasing. Your other parent's Imo (Owerri/Central) Igbo is kept for *understanding* only, so you don't blend the two while speaking. Standard Igbo (BBC-style) is used only for grammar names and extra listening, never as your speaking model.
-- **No tutor.** Correction comes from your Enugu parent and relatives (Sunday call + a weekly voice note asking "did I say this right?"), your own record-and-compare, and the app in `app/`.
+- **Target dialect: Standard Igbo (Igbo Izugbe)**, the widest-spread form, used in BBC Igbo, schools and church. Your parents' Enugu and Imo speech is still your base and a great source of listening. Note where they differ from the standard in the optional notebook (app: Progress tab), and switch on purpose between home and standard speech.
+- **No tutor.** Correction comes from your parents and relatives (Sunday call + a weekly voice note asking "did that sound natural?"), your own record-and-compare, and the app in `app/`.
 
 ## Weekly time (see SCHEDULE for exact slots)
 ~3h20-3h30 per week in term (Tier B-ish), ~60-90 min/day in break weeks (Tier C), and a 5-minute floor on any day.
 
 ## What a week contains
-1. **Speak-out, 45 min (Tuesday ~7 pm):** record a 5-minute talk, listen back, mark 3 errors, then send a voice note to an Enugu relative to check it.
+1. **Speak-out, 45 min (Tuesday ~7 pm):** record a 5-minute talk, listen back, mark 3 errors, then send a voice note to a relative to check it.
 2. **Family call, 20 min (Sunday):** the free daily-life conversation; ask a parent to correct you in Igbo, and note how each parent says things.
 3. **Shadowing (Monday):** copy a native clip line by line, record yourself, compare.
 4. **Grammar by speaking (Monday):** learn a pattern, then say 10 sentences aloud with it. No writing.
-5. **Speaking prompt (Sat/Wed):** record yourself on a topic for 5 minutes, listen back, pick 3 errors to check with an Enugu relative.
+5. **Speaking prompt (Sat/Wed):** record yourself on a topic for 5 minutes, listen back, pick 3 errors to check with a relative.
 6. **Talk-to-self (daily 15 min or 5-min floor):** narrate what you're doing in Igbo; note words you lacked.
 7. **Sunday check (see CHECKPOINTS.md):** all spoken.
 
@@ -25,7 +25,7 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 - Baseline recordings and gap audit (RETENTION.md, GRAMMAR_GAPS.md).
 - Tone and sounds by ear: minimal pairs, shadowing.
 - Core verb patterns spoken: present, future, past, perfect, negation.
-- Start the Enugu notebook (app: Progress tab).
+- Start the optional family-variants notebook (app: Progress tab).
 - **Milestone 1 (Sun Dec 20):** 2-minute self-introduction + family + routine without notes.
 
 ### Phase 2: Pattern speed (Weeks 5-10, Dec 21 - Jan 31)

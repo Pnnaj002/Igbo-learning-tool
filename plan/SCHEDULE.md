@@ -45,8 +45,8 @@ Say 5 sentences out loud about your day, in Igbo, in the car, shower or walk. Th
 
 ## BART commute = your listening block (free time, no extra study minutes)
 Class days are Wed/Thu/Fri (and some Saturdays), so about 2-3 BART rides a week plus return trips. Use them for **input**, not speaking out loud:
-- Parent/relative voice notes (your Enugu parent first), re-played and repeated silently (mouth the words).
-- Short Enugu-flavored clips (see RESOURCES.md section 7); Igbo Daily Drops for vocab.
+- Parent/relative voice notes (family first), re-played and repeated silently (mouth the words).
+- Short Standard Igbo clips (see RESOURCES.md section 4); Igbo Daily Drops for vocab.
 - Flashcard reviews: Vault deck (10 cards) + Gap deck.
 - Don't do speaking prompts on BART; keep those for home, walks or the car.
 Target 2+ hours of Igbo audio per week; the commute covers most of it.

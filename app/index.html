@@ -95,18 +95,18 @@ const MILE = [
 const BASELINE = ["3 minutes talking freely about family and your day","Summarize a native clip (a parent's voice note works) aloud","Name 10 household objects, 10 foods, 10 family relationships; mark hesitations"];
 
 const BLOCKS = {
- floor:{t:"5-minute floor",m:5,d:"Say 5 sentences about your day aloud in Enugu Igbo: in the car, shower or on a walk. Counts as a streak day.",tab:null},
+ floor:{t:"5-minute floor",m:5,d:"Say 5 sentences about your day aloud in Igbo: in the car, shower or on a walk. Counts as a streak day.",tab:null},
  talk:{t:"Talk-to-self",m:15,d:"Narrate what you are doing in Igbo. When you lack a word, say it in English and add it to your Gap cards afterward.",tab:"drill"},
  gram:{t:"Grammar by speaking",m:15,d:"Pick a verb in the Verbs drill. Say each form aloud, then 10 sentences of your own with this week's pattern. No writing.",tab:"drill"},
- shadow:{t:"Shadowing",m:15,d:"Pick a 1-minute clip (your Enugu parent's voice note is best). Play a line, pause, repeat it matching rhythm and pitch. Record yourself and compare.",tab:"media"},
- speakout:{t:"Speak-out + voice note",m:45,d:"Take a prompt, talk 5 minutes, record it in your voice-memo app and listen back. Mark 3 errors, redo the worst sentence, then send a short voice note to your Enugu relative asking if you said it right.",tab:"speak"},
+ shadow:{t:"Shadowing",m:15,d:"Pick a 1-minute clip (a BBC Igbo or podcast clip works; so does a parent's voice note). Play a line, pause, repeat it matching rhythm and pitch. Record yourself and compare.",tab:"media"},
+ speakout:{t:"Speak-out + voice note",m:45,d:"Take a prompt, talk 5 minutes, record it in your voice-memo app and listen back. Mark 3 errors, redo the worst sentence, then send a short voice note to an Igbo-speaking relative asking if it sounded natural.",tab:"speak"},
  prompt20:{t:"Speaking prompt (record)",m:20,d:"One prompt, 5 minutes, record, listen back, note 3 errors.",tab:"speak"},
  prompt45:{t:"Speaking prompt + review",m:45,d:"Two prompts (5 min each), listen back to both, note errors, redo the worst sentence.",tab:"speak"},
  prompt30:{t:"Speaking prompt (record)",m:30,d:"One long prompt, 7-10 minutes, record, listen back, note errors, redo.",tab:"speak"},
- conv30:{t:"Live Igbo conversation",m:30,d:"Call or voice-chat with any Igbo speaker (Enugu relatives first). Ask them to correct you.",tab:null},
+ conv30:{t:"Live Igbo conversation",m:30,d:"Call or voice-chat with any Igbo speaker (family first). Ask them to correct you.",tab:null},
  cards:{t:"Morning cards + 5 sentences",m:15,d:"10 Vault cards (keep it warm) + new Gap cards. Then say 5 sentences aloud.",tab:"drill"},
  bart:{t:"BART listening",m:30,d:"Listen on the train. Replay a clip and mouth the words silently. See today's picks below. No speaking out loud on BART.",tab:"media"},
- call:{t:"Family call in Igbo",m:20,d:"Call your Enugu parent or relative; speak only Igbo. Ask them to correct you in Igbo and add new words to your Enugu notebook.",tab:null},
+ call:{t:"Family call in Igbo",m:20,d:"Call a parent or relative; speak only Igbo. Ask them to correct you in Igbo and jot new words in your notebook.",tab:null},
  check:{t:"Weekly mini-check",m:25,d:"Score the 5-item check, log your week, plan next week.",tab:"progress"}
 };
 function termOf(d){ // d: Date
@@ -161,7 +161,7 @@ const PROMPTS=[
  [16,"Tell a proverb you know and explain it with an example."],[18,"Retell a folktale in your own words."],[19,"Narrate your whole day as it happens, out loud."]
 ];
 const MEDIA=[
- {id:"fam",t:"Voice notes from your Enugu parent or relative",type:"Family",lvl:1,url:"",d:"Best source for your target dialect. Ask for 1-2 minute voice notes (a recipe, a story, what they did today). Shadow these first.",mode:"Shadow + retell"},
+ {id:"fam",t:"Voice notes from family",type:"Family",lvl:1,url:"",d:"Easy daily listening. Ask for 1-2 minute voice notes (a recipe, a story, what they did today) and shadow them. If their phrasing differs from Standard Igbo, log it in your notebook.",mode:"Shadow + retell"},
  {id:"libc",t:"Learn Igbo By Conversation (LIBC)",type:"Conversation",lvl:1,url:"https://www.youtube.com/@LIBC-LearnIgboByConversation",d:"Everyday conversation phrases and pronunciation. Standard Igbo; compare with your parent's phrasing.",mode:"Shadow"},
  {id:"ltv",t:"Learn Igbo TV",type:"Conversation",lvl:1,url:"https://www.youtube.com/channel/UCOcjsjITohm4TZA9xlBzAiA",d:"Vocabulary, phrases and real-life conversation lessons with stories and culture.",mode:"Listen"},
  {id:"tit",t:"The Igbo Tutor",type:"Conversation",lvl:1,url:"https://www.youtube.com/channel/UCAO3WXjyuFbYOmW3HPymuFA",d:"Lessons aimed at learners abroad.",mode:"Listen"},
@@ -181,16 +181,14 @@ const MEDIA=[
  {id:"p3",t:"Igbo lesson 11: proverbs and meanings",type:"Proverbs",lvl:2,url:"https://www.youtube.com/watch?v=47Pjp8X1tgw",d:"Proverbs explained mostly in English.",mode:"Listen"},
  {id:"p4",t:"10 great Igbo proverbs and how to use them",type:"Proverbs",lvl:2,url:"https://www.youtube.com/watch?v=omXXazspMYQ",d:"Usage examples.",mode:"Listen"},
  {id:"bbc",t:"BBC News Igbo",type:"News",lvl:3,url:"https://www.bbc.com/igbo",d:"Articles, audio and video in Standard Igbo. Listen, then summarize aloud.",mode:"Retell"},
- {id:"rn",t:"Radio Nigeria Enugu (Coal City FM 92.9)",type:"Radio",lvl:3,url:"https://radionigeriaenugu.gov.ng",d:"Enugu station; some programming in Igbo. Check the station's own schedule.",mode:"Listen"},
- {id:"str",t:"Enugu radio stations (Streema)",type:"Radio",lvl:3,url:"https://streema.com/radios/Enugu",d:"Directory of Enugu stations to stream live.",mode:"Listen"},
- {id:"sa",t:"Speech Accent Archive: Igbo",type:"Dialects",lvl:2,url:"https://accent.gmu.edu/language/igbo/",d:"Many Igbo speakers read the same passage. Find ones from Enugu and compare with your parent.",mode:"Listen"},
- {id:"s1",t:"YouTube search: Nsukka Igbo",type:"Enugu search",lvl:2,url:"https://www.youtube.com/results?search_query=Nsukka+Igbo+language",d:"Search for Nsukka-area speech. Check each result's dialect with your parent.",mode:"Listen"},
- {id:"s2",t:"YouTube search: Enugu Igbo conversation",type:"Enugu search",lvl:2,url:"https://www.youtube.com/results?search_query=Enugu+Igbo+conversation",d:"Everyday talk by Enugu speakers.",mode:"Shadow"},
- {id:"s3",t:"YouTube search: Igbo church service Enugu",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+church+service+Enugu",d:"Sermons and hymns in Igbo; formal register.",mode:"Listen"},
- {id:"s4",t:"YouTube search: Igba nkwu Enugu (traditional wedding)",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=igba+nkwu+Enugu",d:"Real-life Igbo speech at cultural events.",mode:"Listen"},
- {id:"s5",t:"YouTube search: Igbo language Nollywood movie",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+language+Nollywood+movie+full",d:"Many are mixed with English. Pick ones mostly in Igbo.",mode:"Listen"}
+ {id:"sa",t:"Speech Accent Archive: Igbo",type:"Dialects",lvl:2,url:"https://accent.gmu.edu/language/igbo/",d:"Many Igbo speakers read the same passage. Hear how speakers from different regions pronounce the same words.",mode:"Listen"},
+{id:"s1",t:"YouTube search: Igbo language lesson (Izugbe)",type:"Search",lvl:1,url:"https://www.youtube.com/results?search_query=Igbo+language+lesson+Izugbe",d:"Lessons in Standard Igbo. Pick the ones spoken mostly in Igbo.",mode:"Shadow"},
+ {id:"s2",t:"YouTube search: Igbo conversation",type:"Search",lvl:2,url:"https://www.youtube.com/results?search_query=Igbo+conversation+in+Igbo+language",d:"Everyday talk between speakers.",mode:"Shadow"},
+ {id:"s3",t:"YouTube search: Igbo church service",type:"Search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+language+church+service+sermon",d:"Sermons and hymns in Igbo; formal register.",mode:"Listen"},
+ {id:"s4",t:"YouTube search: Igbo news",type:"Search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+language+news",d:"News in Igbo.",mode:"Retell"},
+ {id:"s5",t:"YouTube search: Igbo language Nollywood movie",type:"Search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+language+Nollywood+movie+full",d:"Many mix in English. Pick ones mostly in Igbo.",mode:"Listen"}
 ];
-const MTYPES=["All","Family","Conversation","Podcast","Story","Proverbs","News","Radio","Dialects","Enugu search"];
+const MTYPES=["All","Family","Conversation","Podcast","Story","Proverbs","News","Radio","Dialects","Search"];
 
 /* ============ STATE & STORAGE ============ */
 let S={done:{},imm:{},cards:[],cstat:{},vstat:{},vover:{},media:{},mini:{},mile:{},base:{},dial:[],errs:[]};
@@ -252,7 +250,7 @@ function renderNav(){$("#nav").innerHTML=TABS.map(t=>`<button data-tab="${t[0]}"
 function render(){
   renderNav();
   const wk=weekNum(new Date());
-  $("#hdr-sub").textContent=wk<1?"Starts Mon Nov 23 · Enugu Igbo, speaking only":`Week ${Math.min(wk,24)} of 24 · ${PHASE(Math.min(wk,24))}`;
+  $("#hdr-sub").textContent=wk<1?"Starts Mon Nov 23 · Standard Igbo, speaking only":`Week ${Math.min(wk,24)} of 24 · ${PHASE(Math.min(wk,24))}`;
   $("#streak").textContent=streak();
   $("#view").innerHTML=({today:vToday,plan:vPlan,drill:vDrill,speak:vSpeak,media:vMedia,progress:vProgress}[tab])();
   if(tab==="speak") updTimer();
@@ -290,7 +288,7 @@ function vToday(){
     h+=`</div>`;}
   const due=ensureCards()||S.cards.filter(c=>!c.due||c.due<=key).length;
   h+=`<div class="card"><div class="row"><div class="grow"><h3>Cards due</h3><div class="small muted">Vault keeps old knowledge warm; Gap holds new words.</div></div><button class="btn" data-tab="drill">${due} due</button></div></div>`;
-  h+=`<div class="note">Textbook forms in this app are Standard Igbo. Your Enugu parent is the authority. When they say something differently, store their version in the Progress tab (Enugu notebook).</div>`;
+  h+=`<div class="note">This app teaches Standard Igbo, the most widely understood form (used in BBC Igbo, schools and church). When family says something differently you can note it in the Progress tab, but you don't need to change how you talk at home.</div>`;
   return h;
 }
 
@@ -325,13 +323,13 @@ function vDrill(){
     h+=`<div class="card"><span class="pill">${esc(TENSES[t])}</span> <span class="pill o">${esc(v.root)} · ${esc(v.en)}</span>
       <p class="big" style="margin:12px 0 4px">Say it in Igbo, out loud:</p><div class="igbo" style="font-family:var(--body);font-weight:600">${esc(f[1])}</div>`;
     if(vrev){
-      h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="small muted">Standard form</div><div class="igbo">${esc(f[0])}</div>
-        ${ov?`<div class="small muted" style="margin-top:8px">Your Enugu form</div><div class="igbo" style="color:var(--ochre)">${esc(ov)}</div>`:""}
-        <div style="margin-top:12px"><label class="small muted" for="ovin">My Enugu parent says it differently:</label>
-        <div class="row" style="margin-top:4px"><input type="text" id="ovin" value="${esc(ov||"")}" placeholder="Type their version"><button class="btn ghost" data-act="saveov">Save</button></div></div>
+      h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="small muted">Standard Igbo</div><div class="igbo">${esc(f[0])}</div>
+        ${ov?`<div class="small muted" style="margin-top:8px">Your family's form</div><div class="igbo" style="color:var(--ochre)">${esc(ov)}</div>`:""}
+        <div style="margin-top:12px"><label class="small muted" for="ovin">My family says it differently (optional):</label>
+        <div class="row" style="margin-top:4px"><input type="text" id="ovin" value="${esc(ov||"")}" placeholder="Type their version (optional)"><button class="btn ghost" data-act="saveov">Save</button></div></div>
         <div class="chips" style="margin-top:14px"><button class="btn good" data-act="vok">Fast and right</button><button class="btn ghost" data-act="vslow">Slow</button><button class="btn bad" data-act="vmiss">Missed</button></div>`;
     }else h+=`<div style="margin-top:14px"><button class="btn" data-act="vshow">Show answer</button></div>`;
-    h+=`</div><p class="small muted">Goal: any verb in any form in under 5 seconds, no thinking. Forms use "m" (I). These are textbook patterns; tap to record your parent's version.</p>`;
+    h+=`</div><p class="small muted">Goal: any verb in any form in under 5 seconds, no thinking. Forms use "m" (I). These are Standard Igbo patterns. The box is optional, for forms your family says differently.</p>`;
   }
   if(dsub==="cards"){
     const key=iso(new Date());
@@ -343,21 +341,21 @@ function vDrill(){
       const c=S.cards.find(x=>x.id===ccur);
       h+=`<div class="card"><span class="pill">${c.deck==="vault"?"Vault":"Gap"}</span> <span class="small muted">${due.length} due</span>
         <p class="small muted" style="margin:12px 0 4px">Say this in Igbo:</p><div class="igbo" style="font-family:var(--body);font-weight:600">${esc(c.en)}</div>`;
-      if(crev){h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="igbo">${esc(c.ig)}</div>${c.starter?`<div class="small muted">Starter card (Standard). Edit it to your Enugu form below.</div>`:""}
+      if(crev){h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="igbo">${esc(c.ig)}</div>${c.starter?`<div class="small muted">Starter card (Standard Igbo). Edit it only if you want a different form.</div>`:""}
         <div class="chips" style="margin-top:14px"><button class="btn good" data-act="cok">Fast and right</button><button class="btn ghost" data-act="cslow">Slow</button><button class="btn bad" data-act="cmiss">Missed</button></div>
         <div class="row" style="margin-top:8px"><input type="text" id="cedit" value="${esc(c.ig)}" aria-label="Edit Igbo"><button class="btn ghost" data-act="cedit">Save</button></div>`;}
       else h+=`<div style="margin-top:14px"><button class="btn" data-act="cshow">Show answer</button></div>`;
       h+=`</div>`;
     }
     h+=`<div class="card"><h3>Add a card</h3><p class="small muted">Words you lacked while talking go in Gap. Things you already know but want to keep go in Vault.</p>
-      <label class="small muted" for="nen">English</label><input type="text" id="nen"><label class="small muted" for="nig" style="display:block;margin-top:8px">Igbo (Enugu form)</label><input type="text" id="nig">
+      <label class="small muted" for="nen">English</label><input type="text" id="nen"><label class="small muted" for="nig" style="display:block;margin-top:8px">Igbo</label><input type="text" id="nig">
       <div class="chips"><button class="btn" data-act="addcard" data-deck="gap">Add to Gap</button><button class="btn ghost" data-act="addcard" data-deck="vault">Add to Vault</button></div></div>`;
   }
   if(dsub==="tone"){
     h+=`<div class="card"><h3>Tone changes the meaning</h3><p class="small muted">Igbo has high and low tones (and downstep). Say each one, record, and compare with your parent. Marks: acute = high, grave = low.</p>
     <table><tbody><tr><td class="igbo">ákwá</td><td>cry</td></tr><tr><td class="igbo">àkwà</td><td>bed</td></tr><tr><td class="igbo">ákwà</td><td>cloth</td></tr><tr><td class="igbo">àkwá</td><td>egg</td></tr></tbody></table>
-    <p class="small">Drill: say the four in random order to yourself, then ask your Enugu relative to say them. Some Enugu speech can differ; record what they say in your notebook.</p></div>
-    <div class="note">Other things to listen for in Enugu (Northern) speech: vowel sounds and dropped vowels can differ from Standard. Treat your parent's voice as the model.</div>`;
+    <p class="small">Drill: say the four in random order to yourself, then ask a relative to say them.</p></div>
+    <div class="note">Tone and some vowels vary by region. Learn the standard patterns here and log your family's variants in the notebook if you like.</div>`;
   }
   return h;
 }
@@ -378,7 +376,7 @@ function vSpeak(){
    <button class="btn ghost" data-act="tlen" data-s="300">5 min</button><button class="btn ghost" data-act="tlen" data-s="600">10 min</button></div>
    <p class="small muted">Start your voice-memo app first, then talk the whole time. Keep going in Igbo even when stuck. Describe around missing words.</p></div>
    <div class="card"><h3>After you record</h3>
-   <ol class="small" style="padding-left:20px;margin:8px 0"><li>Listen back once, no stopping.</li><li>Note 3 errors or stumbles below.</li><li>Redo your worst sentence 3 times aloud.</li><li>Send a short voice note to an Enugu relative: "Did I say this right? Please answer in Igbo."</li></ol>
+   <ol class="small" style="padding-left:20px;margin:8px 0"><li>Listen back once, no stopping.</li><li>Note 3 errors or stumbles below.</li><li>Redo your worst sentence 3 times aloud.</li><li>Send a short voice note to a relative: "Did I say this right? Please answer in Igbo."</li></ol>
    <label class="small muted" for="errin">3 things to fix</label><textarea id="errin" placeholder="e.g. forgot past form of hụ; stopped at word for 'kitchen'"></textarea>
    <div class="chips"><button class="btn" data-act="logerr">Save</button></div>
    ${S.errs.length?`<h3 style="margin-top:14px">Recent notes</h3>`+S.errs.slice(-5).reverse().map(e=>`<div class="small" style="padding:6px 0;border-top:1px solid var(--line)"><span class="muted">${esc(e.d)}</span> ${esc(e.t)}</div>`).join(""):""}</div>
@@ -402,7 +400,7 @@ function vMedia(){
       <h3 style="margin:8px 0 4px">${m.url?`<a href="${esc(m.url)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">${esc(m.t)}</a>`:esc(m.t)}</h3>
       <div class="small muted">${esc(m.d)}</div></div>
       <label class="small" style="white-space:nowrap"><input type="checkbox" data-media="${m.id}" ${w?"checked":""}> Tried</label></div></div>`;}
-  h+=`<div class="note">I found these through web searches and did not watch them all, so quality varies. None are confirmed Enugu-dialect. Use the Enugu search links, then ask your parent whether the speakers sound like home.</div>
+  h+=`<div class="note">I found these through web searches and did not watch them all, so quality varies. Most teach Standard Igbo, the widest-spread form.</div>
     <h3 style="margin:16px 0 4px">How to use any clip</h3><ol class="small" style="padding-left:20px"><li>Listen once for meaning.</li><li>Replay 1 minute; repeat each line aloud, matching rhythm and pitch.</li><li>Close it and retell what you heard aloud.</li><li>Add 3 words you didn't know to Gap cards.</li></ol>`;
   return h;
 }
@@ -426,11 +424,11 @@ function vProgress(){
   for(const m of MILE){const r=S.mile[m.id]||{};h+=`<div style="padding:10px 0;border-top:1px solid var(--line)"><div class="row"><div class="grow"><b>${m.name}</b> <span class="pill o">Sun ${fmt(parseISO(m.date))}</span><div class="small">${esc(m.task)}</div><div class="small muted">Pass: ${esc(m.pass)}</div></div>
     <label class="small" style="white-space:nowrap"><input type="checkbox" data-mile="${m.id}" ${r.pass?"checked":""}> Passed</label></div>
     <input type="text" data-milenote="${m.id}" value="${esc(r.note||"")}" placeholder="Notes: what to fix next" style="margin-top:6px" aria-label="Notes for ${m.name}"></div>`}
-  h+=`</div><div class="card"><h3>Enugu notebook</h3><p class="small muted">Your target dialect. Add each word or phrase your Enugu parent says that differs from the textbook or from your Imo parent.</p>
+  h+=`</div><div class="card"><h3>Family variants notebook</h3><p class="small muted">Optional. Note words or phrases your family says differently from Standard Igbo, so you can switch on purpose.</p>
     <div class="row"><div class="grow"><label class="small muted" for="dm">Meaning</label><input type="text" id="dm"></div></div>
-    <div class="row" style="margin-top:6px"><div class="grow"><label class="small muted" for="de">Enugu says</label><input type="text" id="de"></div><div class="grow"><label class="small muted" for="ds">Standard / Imo says</label><input type="text" id="ds"></div></div>
+    <div class="row" style="margin-top:6px"><div class="grow"><label class="small muted" for="de">Family says</label><input type="text" id="de"></div><div class="grow"><label class="small muted" for="ds">Standard Igbo</label><input type="text" id="ds"></div></div>
     <div class="chips"><button class="btn" data-act="adddial">Add</button><button class="btn ghost" data-act="dialcard">Also make a Gap card</button></div>`;
-  if(S.dial.length) h+=`<div class="scroll"><table><thead><tr><th>Meaning</th><th>Enugu</th><th>Standard / Imo</th></tr></thead><tbody>${S.dial.slice().reverse().map(r=>`<tr><td>${esc(r.m)}</td><td><b>${esc(r.e)}</b></td><td>${esc(r.s)}</td></tr>`).join("")}</tbody></table></div>`;
+  if(S.dial.length) h+=`<div class="scroll"><table><thead><tr><th>Meaning</th><th>Family</th><th>Standard Igbo</th></tr></thead><tbody>${S.dial.slice().reverse().map(r=>`<tr><td>${esc(r.m)}</td><td><b>${esc(r.e)}</b></td><td>${esc(r.s)}</td></tr>`).join("")}</tbody></table></div>`;
   h+=`</div><div class="card"><h3>Where your data lives</h3><p class="small muted">${store.kind==="db"?"Saved to your private space in this artifact and mirrored in this browser.":"Saved in this browser only (private mode or cleared data erases it)."}</p></div>`;
   return h;
 }
