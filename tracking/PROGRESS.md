@@ -1,9 +1,9 @@
 # Progress Tracker
 
 ## Schedule setup (fill in)
-- Start date:
-- Tier (A/B/C):
-- Study slots (e.g., Mon-Fri 7:30pm, Sat 10am tutor):
+- Start date: Mon Nov 23, 2026
+- Tier (A/B/C): B (A in finals/heavy weeks, C in break weeks)
+- Study slots: see plan/SCHEDULE.md (Tutor Tue ~7pm, Sunday family call)
 - Tutor name / day:
 - Accountability partner:
 

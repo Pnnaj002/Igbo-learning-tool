@@ -1,7 +1,10 @@
 # My Dialect Notes
 
-My family's origin town/region:
+Parents' origins: Enugu (Northern Igbo) and Imo (Owerri/Central area).
+Which parent is from which?  ______
 
-| Meaning | Family form | Standard (Izugbe) form | Notes |
-|---|---|---|---|
-| | | | |
+Ask each parent how they say things; learn both. Log differences here.
+
+| Meaning | Enugu parent says | Imo parent says | Standard / BBC Igbo | Which do I use? |
+|---|---|---|---|---|
+| | | | | |

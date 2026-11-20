@@ -1,5 +1,7 @@
 # Grammar Gaps for Heritage Speakers
 
+> **Speaking-only focus:** skip Section 1 (orthography) and ignore anything about writing. Tone (Section 2) stays because it's heard. Drill everything aloud.
+
 Common blind spots when you learned by ear. **Check the "Self-audit" first**: mark what you can explain/produce.
 Examples are standard textbook patterns; your parents' dialect may differ. Log differences in `tracking/MY_DIALECT_NOTES.md`
 and confirm anything doubtful with a tutor.
