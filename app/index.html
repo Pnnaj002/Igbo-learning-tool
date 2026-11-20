@@ -1,0 +1,478 @@
+<title>Asụsụ Igbo Coach</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: a phone-first daily coach. Header = week + streak; one tab per job (Today, Plan, Drill, Media, Progress). */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#14201d; --muted:#5b6a66; --line:#d9e0e3;
+  --accent:#2c3d9c; --accent-ink:#ffffff; --ochre:#b9780f; --good:#1f7a4d; --bad:#b3372c; --soft:#e7ebf7;
+  --display:"Bricolage Grotesque","Inter",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1715; --surface:#17211f; --ink:#e8efec; --muted:#9db0aa; --line:#2b3a36;
+  --accent:#8c9cf2; --accent-ink:#0f1715; --ochre:#e0a64a; --good:#5fcf95; --bad:#ef8579; --soft:#1f2a4a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1715; --surface:#17211f; --ink:#e8efec; --muted:#9db0aa; --line:#2b3a36;
+  --accent:#8c9cf2; --accent-ink:#0f1715; --ochre:#e0a64a; --good:#5fcf95; --bad:#ef8579; --soft:#1f2a4a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
+.wrap{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.15}
+h2{font-size:1.25rem} h3{font-size:1.05rem}
+header{padding:20px 0 12px;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:.85rem}
+.streak{display:flex;gap:6px;align-items:baseline;font-variant-numeric:tabular-nums}
+.streak b{font-family:var(--display);font-size:1.6rem;color:var(--ochre)}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:flex;
+  padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));z-index:5}
+nav button{flex:1;background:none;border:0;color:var(--muted);font:inherit;font-size:.78rem;padding:8px 2px;border-radius:8px;cursor:pointer}
+nav button[aria-current=true]{color:var(--accent);font-weight:600;background:var(--soft)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.row{display:flex;gap:12px;align-items:flex-start}
+.grow{flex:1;min-width:0}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--accent)}
+.pill.o{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.muted{color:var(--muted)} .small{font-size:.85rem}
+button.btn,a.btn{font:inherit;font-weight:600;background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+button.btn.ghost,a.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+button.btn.good{background:var(--good);color:var(--accent-ink)} button.btn.bad{background:var(--bad);color:var(--accent-ink)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.block{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.block:first-of-type{border-top:0}
+.block input[type=checkbox]{width:22px;height:22px;margin-top:2px;accent-color:var(--accent);flex:none}
+.block.done .t{text-decoration:line-through;color:var(--muted)}
+.mins{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem;white-space:nowrap}
+.igbo{font-family:var(--display);font-size:1.45rem;line-height:1.3}
+.big{font-size:1.15rem}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.scroll{overflow-x:auto}
+tr.now td{background:var(--soft)}
+input[type=text],textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%}
+textarea{min-height:70px;resize:vertical}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{font:inherit;font-size:.82rem;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none}
+.chip[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent)}
+.bars{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:70px}
+.bars i{display:block;background:var(--accent);border-radius:3px 3px 0 0;min-height:2px}
+.bars i.cur{background:var(--ochre)}
+.timer{font-family:var(--display);font-size:3rem;font-variant-numeric:tabular-nums}
+.note{border-left:3px solid var(--ochre);padding:4px 12px;margin:10px 0;color:var(--muted);font-size:.88rem}
+.tabs-sub{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.hidden{display:none}
+@media (prefers-reduced-motion:no-preference){.bar>i{transition:width .3s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div><div class="brand">Asụsụ Igbo Coach</div><div class="sub" id="hdr-sub"></div></div>
+    <div class="streak" title="Days in a row with at least the 5-minute floor"><b id="streak">0</b><span class="sub">day streak</span></div>
+  </header>
+  <main id="view"></main>
+</div>
+<nav id="nav"></nav>
+
+<script>
+"use strict";
+/* ============ DATA ============ */
+const START = new Date(2026,10,23); // Mon Nov 23, 2026 (local)
+const DAY = 864e5;
+const FOCUS = ["Baseline recordings, gap audit, tone by ear","Sounds and tone; present and future verbs","Finals: floor + Sunday call only","Past, perfect and negation drills","Questions and commands; holiday family talk","Connectors; tell stories about your week","Vowel harmony in speech; numbers and time","Relative clauses; giving opinions","Respect forms and greetings for elders","Review and consolidation","Storytelling about past events","Floor + redo your week 1 baseline","Hypotheticals (ọ bụrụ na, if...)","Unplanned topics; surprise conversation","Long-form talking (5+ minutes)","Humor, proverbs and idioms","Winter finals: floor + Sunday call","Retell stories from memory","Switch one routine into Igbo","Two conversations a week outside family","Listen to other dialects","20-minute free conversation","Fix remaining weak spots","Redo baseline; pick next 6-month goals"];
+const MODES = "BBACCCBBBBBABBBBACBBBBBB".split("");
+const CLASSNOTE = {1:"Light: class Wed only; Thu/Fri off. Record relatives if you see them.",3:"Finals Wed 12/9, Thu 12/10, Fri 12/11.",4:"Break",5:"Break (holidays)",6:"Break",7:"Class Thu 1/7; Sat 1/9 full day.",8:"Thu and Sat busy.",9:"Thu and Sat busy.",10:"Thu and Sat busy.",11:"Thu and Sat busy.",12:"Fri 2/12 and Sat 2/13 full day.",13:"Zoom Tue; Thu and Fri busy.",14:"Zoom Tue; Thu and Fri busy.",15:"Zoom Tue; Thu and Fri busy.",16:"Zoom Tue; Thu and Fri busy.",17:"Winter finals (Fri 3/19).",18:"Likely break.",19:"Spring schedule unknown: tell me and I will re-cut."};
+const MILE = [
+ {id:"m1",wk:4,date:"2026-12-20",name:"Milestone 1",task:"2-min self-introduction, family and routine, no notes.",pass:"Fewer than 5 pauses over 3 seconds."},
+ {id:"m2",wk:10,date:"2027-01-31",name:"Milestone 2",task:"5-min unscripted conversation with a relative; explain 3 patterns aloud.",pass:"10 or fewer errors your relative flags."},
+ {id:"b2",wk:12,date:"2027-02-14",name:"Baseline redo",task:"Redo the three week 1 recordings.",pass:"Faster, fewer hesitations than week 1."},
+ {id:"m3",wk:14,date:"2027-02-28",name:"Milestone 3",task:"10-min conversation on a surprise topic.",pass:"70%+ Igbo; 5 or fewer English fallbacks."},
+ {id:"m4",wk:18,date:"2027-03-28",name:"Milestone 4",task:"Retell a 3-min audio story from memory.",pass:"Events in order with natural connectors."},
+ {id:"m5",wk:22,date:"2027-04-25",name:"Milestone 5",task:"20-min free conversation with someone outside your family.",pass:"No English; ask for clarification in Igbo."},
+ {id:"fin",wk:24,date:"2027-05-09",name:"Final",task:"Redo the week 1 baseline and compare side by side.",pass:"Documented improvement."}];
+const BASELINE = ["3 minutes talking freely about family and your day","Summarize a native clip (a parent's voice note works) aloud","Name 10 household objects, 10 foods, 10 family relationships; mark hesitations"];
+
+const BLOCKS = {
+ floor:{t:"5-minute floor",m:5,d:"Say 5 sentences about your day aloud in Enugu Igbo: in the car, shower or on a walk. Counts as a streak day.",tab:null},
+ talk:{t:"Talk-to-self",m:15,d:"Narrate what you are doing in Igbo. When you lack a word, say it in English and add it to your Gap cards afterward.",tab:"drill"},
+ gram:{t:"Grammar by speaking",m:15,d:"Pick a verb in the Verbs drill. Say each form aloud, then 10 sentences of your own with this week's pattern. No writing.",tab:"drill"},
+ shadow:{t:"Shadowing",m:15,d:"Pick a 1-minute clip (your Enugu parent's voice note is best). Play a line, pause, repeat it matching rhythm and pitch. Record yourself and compare.",tab:"media"},
+ speakout:{t:"Speak-out + voice note",m:45,d:"Take a prompt, talk 5 minutes, record it in your voice-memo app and listen back. Mark 3 errors, redo the worst sentence, then send a short voice note to your Enugu relative asking if you said it right.",tab:"speak"},
+ prompt20:{t:"Speaking prompt (record)",m:20,d:"One prompt, 5 minutes, record, listen back, note 3 errors.",tab:"speak"},
+ prompt45:{t:"Speaking prompt + review",m:45,d:"Two prompts (5 min each), listen back to both, note errors, redo the worst sentence.",tab:"speak"},
+ prompt30:{t:"Speaking prompt (record)",m:30,d:"One long prompt, 7-10 minutes, record, listen back, note errors, redo.",tab:"speak"},
+ conv30:{t:"Live Igbo conversation",m:30,d:"Call or voice-chat with any Igbo speaker (Enugu relatives first). Ask them to correct you.",tab:null},
+ cards:{t:"Morning cards + 5 sentences",m:15,d:"10 Vault cards (keep it warm) + new Gap cards. Then say 5 sentences aloud.",tab:"drill"},
+ bart:{t:"BART listening",m:30,d:"Listen on the train. Replay a clip and mouth the words silently. See today's picks below. No speaking out loud on BART.",tab:"media"},
+ call:{t:"Family call in Igbo",m:20,d:"Call your Enugu parent or relative; speak only Igbo. Ask them to correct you in Igbo and add new words to your Enugu notebook.",tab:null},
+ check:{t:"Weekly mini-check",m:25,d:"Score the 5-item check, log your week, plan next week.",tab:"progress"}
+};
+function termOf(d){ // d: Date
+  const k=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+  if(k<=20261211) return "fall"; if(k<=20270103) return "break"; if(k<=20270319) return "winter"; return "spring";
+}
+function blocksFor(d,mode){
+  const dow=d.getDay(); // 0 Sun
+  const term=termOf(d), wk=weekNum(d);
+  if(dow===0) return ["call","check"];
+  if(mode==="A") return ["talk"];
+  if(term==="break"||mode==="C") return ["talk","gram","shadow","prompt30","conv30"];
+  const k=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+  if(dow===1) return ["gram","shadow"];
+  if(dow===2) return ["talk","speakout"];
+  if(term==="winter"){
+    if(dow===3) return ["prompt45","cards"];
+    if(dow===4||dow===5) return ["cards","bart"];
+    if(dow===6) return (k>=20270109&&k<=20270213)?["floor"]:["prompt20"];
+  }
+  if(dow===3||dow===4||dow===5) return ["cards","bart"];
+  return ["prompt20"];
+}
+const PHASE=wk=>wk<=4?"Audit and sounds":wk<=10?"Pattern speed":wk<=18?"Output and range":"Automaticity";
+
+const VERBS=[
+ {root:"ri",en:"eat",f:{pres:["Ana m eri nri","I am eating food"],fut:["Aga m eri nri","I will eat food"],past:["Eriri m nri","I ate food"],perf:["Eriela m nri","I have eaten food"],neg:["Erighị m nri","I don't / didn't eat food"],cmd:["Rie nri","Eat food!"]}},
+ {root:"ga",en:"go",f:{pres:["Ana m aga","I am going"],fut:["Aga m aga","I will go"],past:["Agara m","I went"],perf:["Agala m","I have gone"],neg:["Agaghị m","I don't / didn't go"],cmd:["Gaa","Go!"]}},
+ {root:"bịa",en:"come",f:{pres:["Ana m abịa","I am coming"],fut:["Aga m abịa","I will come"],past:["Abịara m","I came"],perf:["Abịala m","I have come"],neg:["Abịaghị m","I don't / didn't come"],cmd:["Bịa","Come!"]}},
+ {root:"hụ",en:"see",f:{pres:["Ana m ahụ ya","I am seeing him/her/it"],fut:["Aga m ahụ ya","I will see him/her/it"],past:["Hụrụ m ya","I saw him/her/it"],perf:["Ahụla m ya","I have seen him/her/it"],neg:["Ahụghị m ya","I don't / didn't see him/her/it"],cmd:["Hụ ya","See it!"]}},
+ {root:"mee",en:"do",f:{pres:["Ana m eme ya","I am doing it"],fut:["Aga m eme ya","I will do it"],past:["Mere m ya","I did it"],perf:["Emela m ya","I have done it"],neg:["Emeghị m ya","I don't / didn't do it"],cmd:["Mee ya","Do it!"]}},
+ {root:"ṅụọ",en:"drink",f:{pres:["Ana m aṅụ mmiri","I am drinking water"],fut:["Aga m aṅụ mmiri","I will drink water"],past:["Ṅụrụ m mmiri","I drank water"],perf:["Aṅụọla m mmiri","I have drunk water"],neg:["Aṅụghị m mmiri","I don't / didn't drink water"],cmd:["Ṅụọ mmiri","Drink water!"]}},
+ {root:"kwuo",en:"speak",f:{pres:["Ana m ekwu okwu","I am speaking"],fut:["Aga m ekwu okwu","I will speak"],past:["Kwuru m okwu","I spoke"],perf:["Ekwuola m okwu","I have spoken"],neg:["Ekwughị m okwu","I don't / didn't speak"],cmd:["Kwuo okwu","Speak!"]}},
+ {root:"nye",en:"give",f:{pres:["Ana m enye ya","I am giving it"],fut:["Aga m enye ya","I will give it"],past:["Nyere m ya","I gave it"],perf:["Enyela m ya","I have given it"],neg:["Enyeghị m ya","I don't / didn't give it"],cmd:["Nye ya","Give it!"]}}
+];
+const TENSES={pres:"Present (na-)",fut:"Future (ga-)",past:"Past",perf:"Perfect (-la/-le)",neg:"Negative (-ghị)",cmd:"Command"};
+
+const STARTER=[
+ ["Hello / how are you? (greeting)","Kedu?","vault"],["Welcome","Nnọọ","vault"],["Thank you","Daalụ","vault"],["Please","Biko","vault"],["Sorry (sympathy)","Ndo","vault"],
+ ["Good morning","Ụtụtụ ọma","vault"],["Good afternoon","Ehihie ọma","vault"],["Good evening","Mgbede ọma","vault"],["Good night","Ka chi fo","vault"],["I'm fine","Ọ dị mma","vault"],
+ ["What?","Gịnị?","vault"],["Who?","Onye?","vault"],["Where?","Ebee?","vault"],["How many?","Ole?","vault"],["Why?","Gịnị mere?","vault"],
+ ["One","otu","vault"],["Two","abụọ","vault"],["Three","atọ","vault"],["Four","anọ","vault"],["Five","ise","vault"],["Six","isii","vault"],["Seven","asaa","vault"],["Eight","asatọ","vault"],["Nine","itoolu","vault"],["Ten","iri","vault"],
+ ["I don't understand","Aghọtaghị m","gap"],["Say it again","Kwuo ya ọzọ","gap"],["Tell me","Gwa m","gap"],["I will see you tomorrow","Aga m ahụ gị echi","gap"],
+ ["cry (high-high tone)","ákwá","gap"],["bed (low-low tone)","àkwà","gap"],["cloth (high-low tone)","ákwà","gap"],["egg (low-high tone)","àkwá","gap"]
+];
+const PROMPTS=[
+ [1,"Describe your morning from waking up to leaving the house."],[1,"Introduce yourself and your family to someone you've just met."],[2,"Tell me what you did yesterday (use the past)."],
+ [2,"What will you do this weekend? (future)"],[3,"Tell me about a typical day in your classes. Explain what you study."],[4,"Describe how to cook a dish your family makes, step by step."],
+ [5,"Greet an elder, ask about their health, family and work."],[6,"Give directions from your home to the BART station."],[7,"Tell a story from your childhood."],
+ [8,"Say what you think is the best food and why. Disagree politely with someone."],[10,"Retell the last thing you watched or listened to."],[11,"Describe a trip or event from the past in detail."],
+ [13,"What would you do if you had a whole week off? (hypothetical)"],[14,"Explain a problem at work or school and how you would fix it."],[15,"Talk for 7 minutes about your family history."],
+ [16,"Tell a proverb you know and explain it with an example."],[18,"Retell a folktale in your own words."],[19,"Narrate your whole day as it happens, out loud."]
+];
+const MEDIA=[
+ {id:"fam",t:"Voice notes from your Enugu parent or relative",type:"Family",lvl:1,url:"",d:"Best source for your target dialect. Ask for 1-2 minute voice notes (a recipe, a story, what they did today). Shadow these first.",mode:"Shadow + retell"},
+ {id:"libc",t:"Learn Igbo By Conversation (LIBC)",type:"Conversation",lvl:1,url:"https://www.youtube.com/@LIBC-LearnIgboByConversation",d:"Everyday conversation phrases and pronunciation. Standard Igbo; compare with your parent's phrasing.",mode:"Shadow"},
+ {id:"ltv",t:"Learn Igbo TV",type:"Conversation",lvl:1,url:"https://www.youtube.com/channel/UCOcjsjITohm4TZA9xlBzAiA",d:"Vocabulary, phrases and real-life conversation lessons with stories and culture.",mode:"Listen"},
+ {id:"tit",t:"The Igbo Tutor",type:"Conversation",lvl:1,url:"https://www.youtube.com/channel/UCAO3WXjyuFbYOmW3HPymuFA",d:"Lessons aimed at learners abroad.",mode:"Listen"},
+ {id:"ime",t:"Igbo Made Easy",type:"Conversation",lvl:2,url:"https://www.youtube.com/c/IgboMadeEasy",d:"Tutor-led lessons.",mode:"Listen"},
+ {id:"qtv",t:"Igbo with Queen TV",type:"Conversation",lvl:1,url:"https://www.youtube.com/channel/UC6S5tHa_0o5L7S50oMhvTTQ",d:"Counting, greetings, songs; repeats phrases often.",mode:"Shadow"},
+ {id:"ivs",t:"IgboVillageSquare",type:"Conversation",lvl:2,url:"https://www.youtube.com/user/NdewoIgboLessons",d:"Lesson series in Igbo Izugbe (the school standard).",mode:"Listen"},
+ {id:"dd",t:"Igbo Daily Drops (podcast)",type:"Podcast",lvl:1,url:"https://podcasts.apple.com/us/podcast/id1876047354",d:"10-minute daily Igbo lessons. Great for the BART.",mode:"Listen"},
+ {id:"ljj",t:"Learn Igbo with Jackie (podcast)",type:"Podcast",lvl:1,url:"https://podcasts.apple.com/fi/podcast/learn-igbo-with-jackie/id1538398133",d:"Short lessons.",mode:"Listen"},
+ {id:"ap",t:"Igbo Podcast (Anchor)",type:"Podcast",lvl:2,url:"https://anchor.fm/igbopodcast",d:"Vocabulary episodes (older content).",mode:"Listen"},
+ {id:"akf",t:"Akụkọ Ifọ (Igbo folktale playlist)",type:"Story",lvl:2,url:"https://www.youtube.com/playlist?list=PLv9aEIv286cTROlxZIb3NLkGFA_VRe6ZR",d:"Animated Igbo folktales. Listen, then retell aloud.",mode:"Retell"},
+ {id:"mbe",t:"Mbe na Enwe (story time)",type:"Story",lvl:2,url:"https://www.youtube.com/watch?v=GeBcd1ejVGM",d:"Folktale video offered in several languages including Igbo.",mode:"Retell"},
+ {id:"eb",t:"Folktales by Ebubechukwu",type:"Story",lvl:3,url:"https://www.youtube.com/@folktalesbyebubechukwu",d:"Narrated African and Igbo tales. Check which are in Igbo.",mode:"Retell"},
+ {id:"mt",t:"Moonlight Tales by Precious",type:"Story",lvl:2,url:"https://www.youtube.com/@precious_moonlightstories",d:"Short Igbo stories and moral fables.",mode:"Retell"},
+ {id:"nn",t:"The Legend of Nneka (playlist)",type:"Story",lvl:3,url:"https://www.youtube.com/playlist?list=PL4NPgKt180TpNv7usYI22WXiY6pKovMtL",d:"Story series adapting Igbo folklore.",mode:"Listen"},
+ {id:"p1",t:"Ilu Igbo Na Nkọwa Ya",type:"Proverbs",lvl:3,url:"https://www.youtube.com/watch?v=xyFTbMMOoM8",d:"Proverbs and their meanings, in Igbo.",mode:"Listen + explain"},
+ {id:"p2",t:"Ihe nmụta n'asụsụ Igbo: Ilu Igbo na nkọwa ha",type:"Proverbs",lvl:3,url:"https://www.youtube.com/watch?v=gZOTEuN-RmA",d:"Discussion of proverbs held in Igbo.",mode:"Listen + explain"},
+ {id:"p3",t:"Igbo lesson 11: proverbs and meanings",type:"Proverbs",lvl:2,url:"https://www.youtube.com/watch?v=47Pjp8X1tgw",d:"Proverbs explained mostly in English.",mode:"Listen"},
+ {id:"p4",t:"10 great Igbo proverbs and how to use them",type:"Proverbs",lvl:2,url:"https://www.youtube.com/watch?v=omXXazspMYQ",d:"Usage examples.",mode:"Listen"},
+ {id:"bbc",t:"BBC News Igbo",type:"News",lvl:3,url:"https://www.bbc.com/igbo",d:"Articles, audio and video in Standard Igbo. Listen, then summarize aloud.",mode:"Retell"},
+ {id:"rn",t:"Radio Nigeria Enugu (Coal City FM 92.9)",type:"Radio",lvl:3,url:"https://radionigeriaenugu.gov.ng",d:"Enugu station; some programming in Igbo. Check the station's own schedule.",mode:"Listen"},
+ {id:"str",t:"Enugu radio stations (Streema)",type:"Radio",lvl:3,url:"https://streema.com/radios/Enugu",d:"Directory of Enugu stations to stream live.",mode:"Listen"},
+ {id:"sa",t:"Speech Accent Archive: Igbo",type:"Dialects",lvl:2,url:"https://accent.gmu.edu/language/igbo/",d:"Many Igbo speakers read the same passage. Find ones from Enugu and compare with your parent.",mode:"Listen"},
+ {id:"s1",t:"YouTube search: Nsukka Igbo",type:"Enugu search",lvl:2,url:"https://www.youtube.com/results?search_query=Nsukka+Igbo+language",d:"Search for Nsukka-area speech. Check each result's dialect with your parent.",mode:"Listen"},
+ {id:"s2",t:"YouTube search: Enugu Igbo conversation",type:"Enugu search",lvl:2,url:"https://www.youtube.com/results?search_query=Enugu+Igbo+conversation",d:"Everyday talk by Enugu speakers.",mode:"Shadow"},
+ {id:"s3",t:"YouTube search: Igbo church service Enugu",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+church+service+Enugu",d:"Sermons and hymns in Igbo; formal register.",mode:"Listen"},
+ {id:"s4",t:"YouTube search: Igba nkwu Enugu (traditional wedding)",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=igba+nkwu+Enugu",d:"Real-life Igbo speech at cultural events.",mode:"Listen"},
+ {id:"s5",t:"YouTube search: Igbo language Nollywood movie",type:"Enugu search",lvl:3,url:"https://www.youtube.com/results?search_query=Igbo+language+Nollywood+movie+full",d:"Many are mixed with English. Pick ones mostly in Igbo.",mode:"Listen"}
+];
+const MTYPES=["All","Family","Conversation","Podcast","Story","Proverbs","News","Radio","Dialects","Enugu search"];
+
+/* ============ STATE & STORAGE ============ */
+let S={done:{},imm:{},cards:[],cstat:{},vstat:{},vover:{},media:{},mini:{},mile:{},base:{},dial:[],errs:[]};
+let store={kind:"none",doc:null};
+let saveT=null;
+const LS="asusu-igbo-coach-v1";
+function lsGet(){try{return JSON.parse(localStorage.getItem(LS)||"null")}catch(e){return null}}
+function lsSet(v){try{localStorage.setItem(LS,JSON.stringify(v))}catch(e){}}
+function saveSoon(){
+  lsSet(S);
+  clearTimeout(saveT);
+  saveT=setTimeout(async()=>{ if(store.doc){ try{await store.doc.set({json:JSON.stringify(S),at:Date.now()})}catch(e){} } },700);
+}
+async function initStore(){
+  const local=lsGet(); if(local) S=Object.assign(S,local);
+  try{
+    if(!window.claude||!window.claude.use) return;
+    const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!db||!user) return;
+    const id=await user.id(); if(!id) return;
+    store.doc=db.collection("data/users/"+id).doc("progress");
+    store.kind="db";
+    const snap=await store.doc.get();
+    if(snap.exists){const d=snap.data(); if(d&&d.json){const r=JSON.parse(d.json); if(!local||(d.at||0)>=(local._at||0)) S=Object.assign(S,r);} }
+    else if(local) saveSoon();
+  }catch(e){store.doc=null}
+}
+function touch(){S._at=Date.now();saveSoon()}
+
+/* ============ HELPERS ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const parseISO=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+function weekNum(d){return Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-START)/(7*DAY))+1}
+function weekStart(wk){return new Date(START.getFullYear(),START.getMonth(),START.getDate()+(wk-1)*7)}
+const fmt=d=>d.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+const fmtL=d=>d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+function curWeek(){const w=weekNum(new Date());return Math.min(24,Math.max(1,w))}
+function dayMins(key){const o=S.done[key]||{};return Object.keys(o).filter(k=>o[k]).reduce((a,k)=>a+(BLOCKS[k]?BLOCKS[k].m:0),0)}
+function streak(){
+  let d=new Date(),n=0;d=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  if(!dayMins(iso(d))){d=new Date(d.getTime()-DAY)}
+  while(dayMins(iso(d))>0){n++;d=new Date(d.getFullYear(),d.getMonth(),d.getDate()-1)}
+  return n;
+}
+function weekMins(wk){let t=0;const s=weekStart(wk);for(let i=0;i<7;i++){const d=new Date(s.getFullYear(),s.getMonth(),s.getDate()+i);t+=dayMins(iso(d))}return t}
+function weekImm(wk){let t=0;const s=weekStart(wk);for(let i=0;i<7;i++){const d=new Date(s.getFullYear(),s.getMonth(),s.getDate()+i);t+=S.imm[iso(d)]||0}return t}
+function ensureCards(){
+  if(!S.cards.length){S.cards=STARTER.map((c,i)=>({id:"s"+i,en:c[0],ig:c[1],deck:c[2],box:0,due:"",starter:true}));}
+}
+function addDays(n){const d=new Date();return iso(new Date(d.getFullYear(),d.getMonth(),d.getDate()+n))}
+const INTERVALS=[0,1,3,7,14,30];
+
+/* ============ VIEWS ============ */
+let tab="today";
+const TABS=[["today","Today"],["plan","Plan"],["drill","Drill"],["speak","Speak"],["media","Media"],["progress","Progress"]];
+function renderNav(){$("#nav").innerHTML=TABS.map(t=>`<button data-tab="${t[0]}" ${t[0]===tab?'aria-current="true"':''}>${t[1]}</button>`).join("")}
+function render(){
+  renderNav();
+  const wk=weekNum(new Date());
+  $("#hdr-sub").textContent=wk<1?"Starts Mon Nov 23 · Enugu Igbo, speaking only":`Week ${Math.min(wk,24)} of 24 · ${PHASE(Math.min(wk,24))}`;
+  $("#streak").textContent=streak();
+  $("#view").innerHTML=({today:vToday,plan:vPlan,drill:vDrill,speak:vSpeak,media:vMedia,progress:vProgress}[tab])();
+  if(tab==="speak") updTimer();
+}
+
+function bartPicks(wk){
+  const pool=MEDIA.filter(m=>m.url&&["Podcast","Conversation","Story","Proverbs","News","Dialects"].includes(m.type)&&m.lvl<=(wk<=6?1:wk<=12?2:3));
+  const n=new Date();const seed=n.getFullYear()*400+n.getMonth()*31+n.getDate();
+  return [pool[seed%pool.length],pool[(seed*7+3)%pool.length]].filter((m,i,a)=>a.indexOf(m)===i);
+}
+function vToday(){
+  const now=new Date(), wkRaw=weekNum(now), wk=Math.min(24,Math.max(1,wkRaw));
+  const mode=MODES[wk-1];
+  const key=iso(now);
+  let h="";
+  if(wkRaw<1){const dl=Math.ceil((START-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/DAY);
+    h+=`<div class="card"><span class="pill">Before start</span><h2 style="margin-top:8px">Starts in ${dl} day${dl===1?"":"s"}</h2><p class="muted">Week 1 begins Monday, Nov 23. Today, do the pre-work: record your three baseline clips (Progress tab) so you can compare in May.</p></div>`;}
+  const ids=wkRaw<1?["floor"]:blocksFor(now,mode);
+  const mins=dayMins(key);
+  h+=`<div class="card"><div class="row"><div class="grow"><div class="small muted">${fmtL(now)}</div>
+    <h2>${esc(FOCUS[wk-1])}</h2>
+    <div class="chips"><span class="pill">Mode ${mode}</span><span class="pill o">${esc(CLASSNOTE[wk]||"Regular class week")}</span></div></div>
+    <div style="text-align:right"><div class="igbo">${mins}</div><div class="small muted">min today</div></div></div></div>`;
+  h+=`<div class="card"><h3>Today's plan</h3>`;
+  for(const id of ids){const b=BLOCKS[id];const ck=!!(S.done[key]&&S.done[key][id]);
+    h+=`<div class="block ${ck?"done":""}"><input type="checkbox" id="c-${id}" data-chk="${id}" ${ck?"checked":""} aria-label="${esc(b.t)}">
+      <div class="grow"><label for="c-${id}" class="t big" style="font-weight:600">${esc(b.t)}</label> <span class="mins">${b.m} min</span>
+      <div class="small muted">${esc(b.d)}</div>${b.tab?`<button class="chip" data-tab="${b.tab}" style="margin-top:6px">Open ${b.tab}</button>`:""}</div></div>`;}
+  if(!ids.includes("floor")){const ck=!!(S.done[key]&&S.done[key].floor);
+    h+=`<div class="block ${ck?"done":""}"><input type="checkbox" id="c-floor" data-chk="floor" ${ck?"checked":""} aria-label="5-minute floor"><div class="grow"><label for="c-floor" class="t" style="font-weight:600">5-minute floor</label> <span class="mins">5 min</span><div class="small muted">On a hard day, this alone keeps your streak.</div></div></div>`;}
+  h+=`</div>`;
+  if(ids.includes("bart")){
+    h+=`<div class="card"><h3>BART picks for today</h3><p class="small muted">Chosen for your current level. Listen, replay one minute, mouth it silently.</p>`;
+    for(const m of bartPicks(wk)) h+=`<div style="margin:8px 0"><a href="${esc(m.url)}" target="_blank" rel="noopener" style="font-weight:600;color:var(--accent)">${esc(m.t)}</a> <span class="pill o">${esc(m.type)}</span><div class="small muted">${esc(m.d)}</div></div>`;
+    h+=`</div>`;}
+  const due=ensureCards()||S.cards.filter(c=>!c.due||c.due<=key).length;
+  h+=`<div class="card"><div class="row"><div class="grow"><h3>Cards due</h3><div class="small muted">Vault keeps old knowledge warm; Gap holds new words.</div></div><button class="btn" data-tab="drill">${due} due</button></div></div>`;
+  h+=`<div class="note">Textbook forms in this app are Standard Igbo. Your Enugu parent is the authority. When they say something differently, store their version in the Progress tab (Enugu notebook).</div>`;
+  return h;
+}
+
+function vPlan(){
+  const cw=weekNum(new Date());
+  let h=`<div class="card"><h2>24 weeks, Nov 23 to May 9</h2><p class="small muted">Sundays and Mondays are always free. Heavy class weeks drop to mode A (floor + Sunday call). Break weeks run mode C. Spring dates are provisional.</p></div>`;
+  h+=`<div class="card scroll"><table><thead><tr><th>Wk</th><th>Dates</th><th>Mode</th><th>Focus</th></tr></thead><tbody>`;
+  for(let w=1;w<=24;w++){const s=weekStart(w),e=new Date(s.getFullYear(),s.getMonth(),s.getDate()+6);
+    const ms=MILE.filter(m=>m.wk===w).map(m=>`<div><span class="pill">${m.name}</span> <span class="small">Sun ${fmt(parseISO(m.date))}</span></div>`).join("");
+    h+=`<tr class="${w===cw?"now":""}"><td>${w}</td><td>${fmt(s)}–${fmt(e)}</td><td>${MODES[w-1]}</td><td>${esc(FOCUS[w-1])}<div class="small muted">${esc(CLASSNOTE[w]||"")}</div>${ms}</td></tr>`;}
+  h+=`</tbody></table></div>`;
+  h+=`<div class="card"><h3>Modes</h3><p class="small"><b>A</b> floor + Sunday call (finals and heaviest weeks). <b>B</b> about 3.5 hours a week (default). <b>C</b> 60-90 minutes a day (breaks).</p></div>`;
+  return h;
+}
+
+/* ---- Drill ---- */
+let dsub="verbs", vcur=null, vrev=false, ccur=null, crev=false, cdeck="all";
+function pickVerb(){
+  for(let tries=0;tries<6;tries++){
+    const v=VERBS[Math.floor(Math.random()*VERBS.length)], t=Object.keys(TENSES)[Math.floor(Math.random()*6)];
+    const st=S.vstat[v.root+t]||{ok:0,miss:0};
+    if(tries<3 && st.miss<=st.ok && Math.random()<.5) continue;
+    vcur={v,t};return;
+  }
+}
+function vDrill(){
+  ensureCards();
+  let h=`<div class="tabs-sub">${[["verbs","Verbs"],["cards","Cards"],["tone","Tone"]].map(t=>`<button class="chip" data-dsub="${t[0]}" aria-pressed="${dsub===t[0]}">${t[1]}</button>`).join("")}</div>`;
+  if(dsub==="verbs"){
+    if(!vcur) pickVerb();
+    const {v,t}=vcur,f=v.f[t],key=v.root+t,ov=S.vover[key];
+    h+=`<div class="card"><span class="pill">${esc(TENSES[t])}</span> <span class="pill o">${esc(v.root)} · ${esc(v.en)}</span>
+      <p class="big" style="margin:12px 0 4px">Say it in Igbo, out loud:</p><div class="igbo" style="font-family:var(--body);font-weight:600">${esc(f[1])}</div>`;
+    if(vrev){
+      h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="small muted">Standard form</div><div class="igbo">${esc(f[0])}</div>
+        ${ov?`<div class="small muted" style="margin-top:8px">Your Enugu form</div><div class="igbo" style="color:var(--ochre)">${esc(ov)}</div>`:""}
+        <div style="margin-top:12px"><label class="small muted" for="ovin">My Enugu parent says it differently:</label>
+        <div class="row" style="margin-top:4px"><input type="text" id="ovin" value="${esc(ov||"")}" placeholder="Type their version"><button class="btn ghost" data-act="saveov">Save</button></div></div>
+        <div class="chips" style="margin-top:14px"><button class="btn good" data-act="vok">Fast and right</button><button class="btn ghost" data-act="vslow">Slow</button><button class="btn bad" data-act="vmiss">Missed</button></div>`;
+    }else h+=`<div style="margin-top:14px"><button class="btn" data-act="vshow">Show answer</button></div>`;
+    h+=`</div><p class="small muted">Goal: any verb in any form in under 5 seconds, no thinking. Forms use "m" (I). These are textbook patterns; tap to record your parent's version.</p>`;
+  }
+  if(dsub==="cards"){
+    const key=iso(new Date());
+    const due=S.cards.filter(c=>(cdeck==="all"||c.deck===cdeck)&&(!c.due||c.due<=key));
+    h+=`<div class="chips">${["all","vault","gap"].map(d=>`<button class="chip" data-cdeck="${d}" aria-pressed="${cdeck===d}">${d==="all"?"All":d==="vault"?"Vault (old knowledge)":"Gap (new)"}</button>`).join("")}</div>`;
+    if(!due.length){h+=`<div class="card"><h3>All caught up</h3><p class="muted">No cards due. Add new words below.</p></div>`;ccur=null}
+    else{
+      if(!ccur||!due.find(c=>c.id===ccur)) ccur=due[Math.floor(Math.random()*due.length)].id;
+      const c=S.cards.find(x=>x.id===ccur);
+      h+=`<div class="card"><span class="pill">${c.deck==="vault"?"Vault":"Gap"}</span> <span class="small muted">${due.length} due</span>
+        <p class="small muted" style="margin:12px 0 4px">Say this in Igbo:</p><div class="igbo" style="font-family:var(--body);font-weight:600">${esc(c.en)}</div>`;
+      if(crev){h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><div class="igbo">${esc(c.ig)}</div>${c.starter?`<div class="small muted">Starter card (Standard). Edit it to your Enugu form below.</div>`:""}
+        <div class="chips" style="margin-top:14px"><button class="btn good" data-act="cok">Fast and right</button><button class="btn ghost" data-act="cslow">Slow</button><button class="btn bad" data-act="cmiss">Missed</button></div>
+        <div class="row" style="margin-top:8px"><input type="text" id="cedit" value="${esc(c.ig)}" aria-label="Edit Igbo"><button class="btn ghost" data-act="cedit">Save</button></div>`;}
+      else h+=`<div style="margin-top:14px"><button class="btn" data-act="cshow">Show answer</button></div>`;
+      h+=`</div>`;
+    }
+    h+=`<div class="card"><h3>Add a card</h3><p class="small muted">Words you lacked while talking go in Gap. Things you already know but want to keep go in Vault.</p>
+      <label class="small muted" for="nen">English</label><input type="text" id="nen"><label class="small muted" for="nig" style="display:block;margin-top:8px">Igbo (Enugu form)</label><input type="text" id="nig">
+      <div class="chips"><button class="btn" data-act="addcard" data-deck="gap">Add to Gap</button><button class="btn ghost" data-act="addcard" data-deck="vault">Add to Vault</button></div></div>`;
+  }
+  if(dsub==="tone"){
+    h+=`<div class="card"><h3>Tone changes the meaning</h3><p class="small muted">Igbo has high and low tones (and downstep). Say each one, record, and compare with your parent. Marks: acute = high, grave = low.</p>
+    <table><tbody><tr><td class="igbo">ákwá</td><td>cry</td></tr><tr><td class="igbo">àkwà</td><td>bed</td></tr><tr><td class="igbo">ákwà</td><td>cloth</td></tr><tr><td class="igbo">àkwá</td><td>egg</td></tr></tbody></table>
+    <p class="small">Drill: say the four in random order to yourself, then ask your Enugu relative to say them. Some Enugu speech can differ; record what they say in your notebook.</p></div>
+    <div class="note">Other things to listen for in Enugu (Northern) speech: vowel sounds and dropped vowels can differ from Standard. Treat your parent's voice as the model.</div>`;
+  }
+  return h;
+}
+
+/* ---- Speak ---- */
+let tmr={left:300,run:false,h:null,len:300}, curPrompt=null, voice="";
+function pickPrompt(){
+  const wk=curWeek();const pool=PROMPTS.filter(p=>p[0]<=wk);
+  curPrompt=pool[Math.floor(Math.random()*pool.length)][1];
+}
+function fmtT(s){return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function vSpeak(){
+  if(!curPrompt) pickPrompt();
+  let h=`<div class="card"><span class="pill">Prompt</span><p class="igbo" style="font-family:var(--body);font-size:1.2rem;font-weight:600;margin:10px 0">${esc(curPrompt)}</p>
+   <button class="btn ghost" data-act="newprompt">Another prompt</button></div>
+   <div class="card" style="text-align:center"><div class="timer" id="timer">${fmtT(tmr.left)}</div>
+   <div class="chips" style="justify-content:center"><button class="btn" data-act="tstart">${tmr.run?"Pause":"Start"}</button><button class="btn ghost" data-act="treset">Reset</button>
+   <button class="btn ghost" data-act="tlen" data-s="300">5 min</button><button class="btn ghost" data-act="tlen" data-s="600">10 min</button></div>
+   <p class="small muted">Start your voice-memo app first, then talk the whole time. Keep going in Igbo even when stuck. Describe around missing words.</p></div>
+   <div class="card"><h3>After you record</h3>
+   <ol class="small" style="padding-left:20px;margin:8px 0"><li>Listen back once, no stopping.</li><li>Note 3 errors or stumbles below.</li><li>Redo your worst sentence 3 times aloud.</li><li>Send a short voice note to an Enugu relative: "Did I say this right? Please answer in Igbo."</li></ol>
+   <label class="small muted" for="errin">3 things to fix</label><textarea id="errin" placeholder="e.g. forgot past form of hụ; stopped at word for 'kitchen'"></textarea>
+   <div class="chips"><button class="btn" data-act="logerr">Save</button></div>
+   ${S.errs.length?`<h3 style="margin-top:14px">Recent notes</h3>`+S.errs.slice(-5).reverse().map(e=>`<div class="small" style="padding:6px 0;border-top:1px solid var(--line)"><span class="muted">${esc(e.d)}</span> ${esc(e.t)}</div>`).join(""):""}</div>
+   <div class="note">Browser pages here can't record from your microphone, so use your phone's voice memo app. The timer and notes live in this app.</div>`;
+  return h;
+}
+function updTimer(){const e=$("#timer");if(e)e.textContent=fmtT(tmr.left)}
+function tick(){tmr.left--;updTimer();if(tmr.left<=0){clearInterval(tmr.h);tmr.run=false;tmr.left=0;render()}}
+
+/* ---- Media ---- */
+let mfilter="All";
+function vMedia(){
+  const wk=curWeek(),key=iso(new Date()),imm=S.imm[key]||0,wi=weekImm(wk);
+  let h=`<div class="card"><h3>Immersion this week</h3><div class="row" style="align-items:center"><div class="grow"><div class="bar"><i style="width:${Math.min(100,wi/120*100)}%"></i></div></div><div class="mins">${wi} / 120 min</div></div>
+    <p class="small muted">Target: 2 hours of Igbo audio a week; the BART covers most of it. Today: ${imm} min.</p>
+    <div class="chips"><button class="chip" data-act="imm" data-n="15">+15 min</button><button class="chip" data-act="imm" data-n="30">+30 min</button><button class="chip" data-act="imm" data-n="-15">-15</button></div></div>`;
+  h+=`<div class="chips">${MTYPES.map(t=>`<button class="chip" data-mf="${t}" aria-pressed="${mfilter===t}">${t}</button>`).join("")}</div>`;
+  for(const m of MEDIA.filter(m=>mfilter==="All"||m.type===mfilter)){
+    const w=!!S.media[m.id];
+    h+=`<div class="card"><div class="row"><div class="grow"><div><span class="pill">${esc(m.type)}</span> <span class="pill o">Level ${m.lvl}</span> <span class="pill o">${esc(m.mode)}</span></div>
+      <h3 style="margin:8px 0 4px">${m.url?`<a href="${esc(m.url)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">${esc(m.t)}</a>`:esc(m.t)}</h3>
+      <div class="small muted">${esc(m.d)}</div></div>
+      <label class="small" style="white-space:nowrap"><input type="checkbox" data-media="${m.id}" ${w?"checked":""}> Tried</label></div></div>`;}
+  h+=`<div class="note">I found these through web searches and did not watch them all, so quality varies. None are confirmed Enugu-dialect. Use the Enugu search links, then ask your parent whether the speakers sound like home.</div>
+    <h3 style="margin:16px 0 4px">How to use any clip</h3><ol class="small" style="padding-left:20px"><li>Listen once for meaning.</li><li>Replay 1 minute; repeat each line aloud, matching rhythm and pitch.</li><li>Close it and retell what you heard aloud.</li><li>Add 3 words you didn't know to Gap cards.</li></ol>`;
+  return h;
+}
+
+/* ---- Progress ---- */
+function vProgress(){
+  const wk=curWeek();
+  let tot=0,days=0;for(const k in S.done){const m=dayMins(k);if(m){tot+=m;days++}}
+  let h=`<div class="card"><h3>Totals</h3><div class="row" style="gap:24px"><div><div class="igbo">${days}</div><div class="small muted">days practiced</div></div><div><div class="igbo">${Math.round(tot/60*10)/10}</div><div class="small muted">hours</div></div><div><div class="igbo">${S.cards.filter(c=>c.box>=3).length}</div><div class="small muted">cards solid</div></div></div>
+    <div class="small muted" style="margin-top:12px">Minutes per week</div><div class="bars">${Array.from({length:24},(_,i)=>{const m=weekMins(i+1);return `<i class="${i+1===wk?"cur":""}" style="height:${Math.min(100,m/240*100)}%" title="Week ${i+1}: ${m} min"></i>`}).join("")}</div>
+    <div class="small muted">Week 1 → 24 · target about 200 minutes/week</div></div>`;
+  const mi=S.mini[wk]||{};
+  const MQ=["Said 5 sentences cold in under 5 seconds each","Shadow clip is closer to the speaker than last week","Recalled 10 words/phrases from this week","Vault spot-check: no hesitations on 5 old cards","Hit at least the 5-minute floor on 6 of 7 days"];
+  h+=`<div class="card"><h3>Week ${wk} mini-check</h3><p class="small muted">Score each 0 (no), 1 (sort of), 2 (yes). 8-10 on track; 5-7 add a drill; under 5 lighten and find the blocker.</p>`;
+  MQ.forEach((q,i)=>{h+=`<div class="row" style="align-items:center;padding:6px 0"><div class="grow small">${q}</div><select data-mini="${i}" style="width:64px" aria-label="${esc(q)}">${[0,1,2].map(n=>`<option ${mi[i]===n?"selected":""}>${n}</option>`).join("")}</select></div>`});
+  const sc=MQ.reduce((a,_,i)=>a+(mi[i]||0),0);
+  h+=`<div class="big" style="font-weight:600">Score: ${sc}/10</div></div>`;
+  h+=`<div class="card"><h3>Baseline recordings</h3><p class="small muted">Record in your voice-memo app before studying. Never delete. Redo in week 12 and week 24.</p>`;
+  BASELINE.forEach((b,i)=>{h+=`<label class="row small" style="padding:6px 0;align-items:center"><input type="checkbox" data-base="${i}" ${S.base[i]?"checked":""} style="width:20px;height:20px;accent-color:var(--accent)"><span class="grow">${esc(b)}</span></label>`});
+  h+=`</div><div class="card"><h3>Milestones</h3>`;
+  for(const m of MILE){const r=S.mile[m.id]||{};h+=`<div style="padding:10px 0;border-top:1px solid var(--line)"><div class="row"><div class="grow"><b>${m.name}</b> <span class="pill o">Sun ${fmt(parseISO(m.date))}</span><div class="small">${esc(m.task)}</div><div class="small muted">Pass: ${esc(m.pass)}</div></div>
+    <label class="small" style="white-space:nowrap"><input type="checkbox" data-mile="${m.id}" ${r.pass?"checked":""}> Passed</label></div>
+    <input type="text" data-milenote="${m.id}" value="${esc(r.note||"")}" placeholder="Notes: what to fix next" style="margin-top:6px" aria-label="Notes for ${m.name}"></div>`}
+  h+=`</div><div class="card"><h3>Enugu notebook</h3><p class="small muted">Your target dialect. Add each word or phrase your Enugu parent says that differs from the textbook or from your Imo parent.</p>
+    <div class="row"><div class="grow"><label class="small muted" for="dm">Meaning</label><input type="text" id="dm"></div></div>
+    <div class="row" style="margin-top:6px"><div class="grow"><label class="small muted" for="de">Enugu says</label><input type="text" id="de"></div><div class="grow"><label class="small muted" for="ds">Standard / Imo says</label><input type="text" id="ds"></div></div>
+    <div class="chips"><button class="btn" data-act="adddial">Add</button><button class="btn ghost" data-act="dialcard">Also make a Gap card</button></div>`;
+  if(S.dial.length) h+=`<div class="scroll"><table><thead><tr><th>Meaning</th><th>Enugu</th><th>Standard / Imo</th></tr></thead><tbody>${S.dial.slice().reverse().map(r=>`<tr><td>${esc(r.m)}</td><td><b>${esc(r.e)}</b></td><td>${esc(r.s)}</td></tr>`).join("")}</tbody></table></div>`;
+  h+=`</div><div class="card"><h3>Where your data lives</h3><p class="small muted">${store.kind==="db"?"Saved to your private space in this artifact and mirrored in this browser.":"Saved in this browser only (private mode or cleared data erases it)."}</p></div>`;
+  return h;
+}
+
+/* ============ EVENTS ============ */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,a,input,label");if(!t)return;
+  const d=t.dataset||{};
+  if(d.tab){tab=d.tab;render();window.scrollTo(0,0);return}
+  if(d.dsub){dsub=d.dsub;render();return}
+  if(d.cdeck){cdeck=d.cdeck;ccur=null;crev=false;render();return}
+  if(d.mf){mfilter=d.mf;render();return}
+  const a=d.act;if(!a)return;
+  const key=iso(new Date());
+  if(a==="vshow"){vrev=true}
+  else if(a==="vok"||a==="vslow"||a==="vmiss"){const k=vcur.v.root+vcur.t;const s=S.vstat[k]||(S.vstat[k]={ok:0,miss:0});if(a==="vok")s.ok++;if(a==="vmiss")s.miss++;vrev=false;pickVerb();touch()}
+  else if(a==="saveov"){const v=$("#ovin").value.trim();const k=vcur.v.root+vcur.t;if(v){S.vover[k]=v;touch()}else{delete S.vover[k];touch()}}
+  else if(a==="cshow"){crev=true}
+  else if(a==="cok"||a==="cslow"||a==="cmiss"){const c=S.cards.find(x=>x.id===ccur);if(c){if(a==="cok")c.box=Math.min(5,c.box+1);if(a==="cmiss")c.box=0;c.due=addDays(INTERVALS[c.box]||0)}crev=false;ccur=null;touch()}
+  else if(a==="cedit"){const c=S.cards.find(x=>x.id===ccur);const v=$("#cedit").value.trim();if(c&&v){c.ig=v;c.starter=false;touch()}}
+  else if(a==="addcard"){const en=$("#nen").value.trim(),ig=$("#nig").value.trim();if(en&&ig){S.cards.push({id:"u"+Date.now(),en,ig,deck:d.deck,box:0,due:""});touch()}}
+  else if(a==="newprompt"){pickPrompt()}
+  else if(a==="tstart"){if(tmr.run){clearInterval(tmr.h);tmr.run=false}else{if(tmr.left<=0)tmr.left=tmr.len;tmr.run=true;tmr.h=setInterval(tick,1000)}}
+  else if(a==="treset"){clearInterval(tmr.h);tmr.run=false;tmr.left=tmr.len}
+  else if(a==="tlen"){clearInterval(tmr.h);tmr.run=false;tmr.len=+d.s;tmr.left=tmr.len}
+  else if(a==="logerr"){const v=$("#errin").value.trim();if(v){S.errs.push({d:key,t:v});touch()}}
+  else if(a==="imm"){S.imm[key]=Math.max(0,(S.imm[key]||0)+ +d.n);touch()}
+  else if(a==="adddial"||a==="dialcard"){const m=$("#dm").value.trim(),en=$("#de").value.trim(),s=$("#ds").value.trim();if(m&&en){S.dial.push({m,e:en,s});if(a==="dialcard")S.cards.push({id:"d"+Date.now(),en:m,ig:en,deck:"gap",box:0,due:""});touch()}}
+  else return;
+  render();
+});
+document.addEventListener("change",e=>{
+  const t=e.target,d=t.dataset||{};const key=iso(new Date());
+  if(d.chk){(S.done[key]||(S.done[key]={}))[d.chk]=t.checked;touch();render()}
+  else if(d.media){S.media[d.media]=t.checked;touch()}
+  else if(d.mini!==undefined){const wk=curWeek();(S.mini[wk]||(S.mini[wk]={}))[d.mini]=+t.value;touch();render()}
+  else if(d.base!==undefined){S.base[d.base]=t.checked;touch()}
+  else if(d.mile){(S.mile[d.mile]||(S.mile[d.mile]={})).pass=t.checked;touch()}
+  else if(d.milenote){(S.mile[d.milenote]||(S.mile[d.milenote]={})).note=t.value;touch()}
+});
+
+ensureCards();
+render();
+initStore().then(()=>{ensureCards();render()});
+</script>

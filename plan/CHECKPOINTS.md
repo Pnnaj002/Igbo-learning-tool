@@ -13,7 +13,7 @@ Score 8-10 on track; 5-7 add one extra drill; <5 lighten the load and find the b
 | # | Date | Task | Pass criteria |
 |---|---|---|---|
 | 1 | Sun Dec 20 | 2-min self-introduction, family, routine | No notes; fewer than 5 pauses > 3 s |
-| 2 | Sun Jan 31 | 5-min unscripted tutor conversation; explain 3 patterns aloud | <= 10 flagged errors |
+| 2 | Sun Jan 31 | 5-min unscripted conversation with a relative; explain 3 patterns aloud | <= 10 errors your relative flags |
 | Baseline redo | Sun Feb 14 | Redo week 1 recordings | Faster, fewer hesitations than week 1 |
 | 3 | Sun Feb 28 | 10-min conversation on a surprise topic | >= 70% Igbo; <= 5 English fallbacks |
 | 4 | Sun Mar 28 | Retell a 3-min audio story from memory | Events in order, natural connectors |

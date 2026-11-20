@@ -5,7 +5,7 @@ Week 24 ends **Sun May 9, 2027**. Spring 2027 classes are unknown, so Weeks 18+ 
 
 ## What your calendar tells us
 - **Always free:** Sundays and Mondays. Use Sunday for family calls + review, Monday for your longest weekday block.
-- **Free except 5 Zoom mornings** (Tue 9-11, Feb 16 - Mar 16): Tuesdays. Tutor slot: **Tuesday ~7 pm** (adjust to taste).
+- **Free except 5 Zoom mornings** (Tue 9-11, Feb 16 - Mar 16): Tuesdays. **Tuesday evening = speak-out block** (no tutor).
 - **Wednesdays:** class 2-6 pm in fall (Wed 9/23-12/9); completely free in winter, so it becomes your second long block.
 - **Thursdays:** classes 2-4 pm (fall) and 11-3 or 2-6 pm (winter, Jan 7 - Mar 11), so do mornings only.
 - **Fridays:** 2-7 pm in fall; 12-7 pm Feb 12 - Mar 19. Mornings only.
@@ -17,7 +17,7 @@ So the plan puts the heavy speaking work on **Sun / Mon / Tue / Wed** and keeps 
 | Day | Block | Minutes |
 |---|---|---|
 | Mon | Evening: grammar-by-speaking (15) + shadowing (15) | 30 |
-| Tue | Morning: talk-to-self (15) + **tutor ~7 pm** | 15 + 45 |
+| Tue | Morning: talk-to-self (15) + **speak-out + voice note ~7 pm** | 15 + 45 |
 | Wed | Morning only (class at 2 pm) | 15 |
 | Thu | Morning only | 15 |
 | Fri | Morning only | 15 |
@@ -29,7 +29,7 @@ Total about 3h20/week.
 | Day | Block | Minutes |
 |---|---|---|
 | Mon | Evening: grammar-by-speaking + shadowing | 30 |
-| Tue | Morning 15 (not on Zoom days) + **tutor ~7 pm** | 15 + 45 |
+| Tue | Morning 15 (not on Zoom days) + **speak-out + voice note ~7 pm** | 15 + 45 |
 | Wed | Free day: speaking prompt (record) + vocab from the week's talk | 45 |
 | Thu | 15 min before class | 15 |
 | Fri | 15 min before class | 15 |
@@ -79,4 +79,4 @@ Target 2+ hours of Igbo audio per week; the commute covers most of it.
 | 23 | Apr 26-May 2 | Spring | ? | Fix remaining weak spots | Mini-check |
 | 24 | May 3-9 | Spring | ? | Redo baseline; pick next 6-month goals | **Final (Sun May 9)** |
 
-If a heavy week pushes you off the plan, drop to the 5-minute floor, protect the Sunday call and the Tuesday tutor, and move on. Never double up.
+If a heavy week pushes you off the plan, drop to the 5-minute floor, protect the Sunday call and the Tuesday speak-out, and move on. Never double up.

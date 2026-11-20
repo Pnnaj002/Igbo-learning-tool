@@ -6,13 +6,13 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 ## How the plan changed after your update
 - **Speaking only.** No writing tasks; no reading required. The only "spelling" you need is the vocabulary notes you jot to remember a word (any style is fine). Tone stays, because it is part of speaking.
 - **Target dialect: Enugu Igbo** (Northern Igbo). Your Enugu parent is the main model: shadow their voice notes, copy their phrasing. Your other parent's Imo (Owerri/Central) Igbo is kept for *understanding* only, so you don't blend the two while speaking. Standard Igbo (BBC-style) is used only for grammar names and extra listening, never as your speaking model.
-- **Tutor must be from Enugu State** (ideally your parent's town/area; "Enugu" covers several dialect clusters). Ask before booking: where are you from, and will you let me speak the way my parents do?
+- **No tutor.** Correction comes from your Enugu parent and relatives (Sunday call + a weekly voice note asking "did I say this right?"), your own record-and-compare, and the app in `app/`.
 
 ## Weekly time (see SCHEDULE for exact slots)
 ~3h20-3h30 per week in term (Tier B-ish), ~60-90 min/day in break weeks (Tier C), and a 5-minute floor on any day.
 
 ## What a week contains
-1. **Tutor, 45 min (Tuesday ~7 pm):** speak, get interrupted and corrected. Send your Saturday recording first.
+1. **Speak-out, 45 min (Tuesday ~7 pm):** record a 5-minute talk, listen back, mark 3 errors, then send a voice note to an Enugu relative to check it.
 2. **Family call, 20 min (Sunday):** the free daily-life conversation; ask a parent to correct you in Igbo, and note how each parent says things.
 3. **Shadowing (Monday):** copy a native clip line by line, record yourself, compare.
 4. **Grammar by speaking (Monday):** learn a pattern, then say 10 sentences aloud with it. No writing.
@@ -25,7 +25,7 @@ For dates, class conflicts and the daily template see [SCHEDULE.md](SCHEDULE.md)
 - Baseline recordings and gap audit (RETENTION.md, GRAMMAR_GAPS.md).
 - Tone and sounds by ear: minimal pairs, shadowing.
 - Core verb patterns spoken: present, future, past, perfect, negation.
-- Book the tutor; start the dialect log for both parents.
+- Start the Enugu notebook (app: Progress tab).
 - **Milestone 1 (Sun Dec 20):** 2-minute self-introduction + family + routine without notes.
 
 ### Phase 2: Pattern speed (Weeks 5-10, Dec 21 - Jan 31)

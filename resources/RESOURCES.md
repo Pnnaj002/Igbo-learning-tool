@@ -1,5 +1,7 @@
 # Resources
 
+> **No tutor by choice:** skip Section 5's paid tutors; family and the app replace them. Section 7's tutor names are optional.
+
 > **Speaking-first:** your top picks are Section 5 (tutors, family calls) and Section 4 (audio/listening). Skip reading/writing material for now (textbooks and spelling apps are optional).
 
 Gathered by web search, Nov 2026. "Unverified" = I saw it in search results but did not test it. Check price and

@@ -6,6 +6,7 @@ A personal plan for a heritage speaker: strong listening and conversational comp
 ## How this repo is organized
 | File | Purpose |
 |---|---|
+| [app/index.html](app/index.html) | **The coach app** (also published as a private Artifact): today's plan, drills, speaking prompts, media, progress |
 | [plan/SCHEDULE.md](plan/SCHEDULE.md) | **Start here:** your dated week-by-week calendar built around your Fall/Winter classes |
 | [plan/PLAN.md](plan/PLAN.md) | Speaking-only 24-week plan, 4 phases |
 | [plan/CHECKPOINTS.md](plan/CHECKPOINTS.md) | Weekly mini-checks and 4-week milestone tests with pass criteria |
